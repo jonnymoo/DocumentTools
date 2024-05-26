@@ -1,12 +1,12 @@
-## DocumentTools: An Azure Function Solution
+# DocumentTools: An Azure Function Solution
 
 This repository provides a set of Azure Functions for working with documents. 
 
-**Prerequisites:**
+## Prerequisites
 
-* **Azure Functions Core Tools:** You'll need the Azure Functions Core Tools installed to develop and run your functions locally. Download and install them from the official Microsoft documentation: [https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+- **Azure Functions Core Tools:** You'll need the Azure Functions Core Tools installed to develop and run your functions locally. Download and install them from the official Microsoft documentation: [https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local)
 
-**Getting Started:**
+## Getting Started
 
 1. **Clone the Repository:** Clone this repository to your local machine using Git.
 2. **Run the Functions Locally:** Open a terminal in the project directory and run the following command to start the local Azure Functions runtime:
@@ -17,7 +17,7 @@ func start
 
 This will start the local development server and expose your functions on `http://localhost:7071`.
 
-**APIs:**
+## APIs
 
 The Azure Functions project exposes two main APIs:
 
@@ -46,11 +46,11 @@ The Azure Functions project exposes two main APIs:
         * On success, the function returns a JSON array containing the names of all entries within the zip archive.
         * On error, a JSON object containing the error message is returned with a status code of 400 (Bad Request).
 
-**Example Usage with Postman:**
+## Example Usage with Postman
 
 You can use tools like Postman to test these APIs locally by sending HTTP requests to `http://localhost:7071`. Here's how to test each function:
 
-**GetDocumentFromZip:**
+### GetDocumentFromZip
 
 1. Set the request method to `POST`.
 2. Set the request body to RAW mode and paste the following JSON replacing the placeholder with your base64 encoded zip and desired document index:
@@ -64,7 +64,7 @@ You can use tools like Postman to test these APIs locally by sending HTTP reques
 
 3. Send the request.
 
-**Entries:**
+### Entries
 
 1. Set the request method to `POST`.
 2. Set the request body to RAW mode and paste the following JSON replacing the placeholder with your base64 encoded zip:
