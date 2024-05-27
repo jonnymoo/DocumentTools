@@ -27,7 +27,7 @@ public class ZipAPIs
 
 
         // Validate input data (replace with your validation logic)
-        if (inputData == null || !inputData?.ContainsKey("Zip") || !inputData?.ContainsKey("Index"))
+        if (inputData == null || !inputData?.ContainsKey("Zip") || !inputData?.ContainsKey("Index") || !inputData?.ContainsKey("RegExFilter"))
         {
             return new ObjectResult("Invalid input data format")
             {
@@ -39,7 +39,8 @@ public class ZipAPIs
         {
             string zipBase64 = inputData!.Zip;
             int index = inputData!.Index;
-            using Zip zip = new(zipBase64.Replace("&#13;&#10;", ""));
+            string regExFilter = inputData!.RegExFilter;
+            using Zip zip = new(zipBase64.Replace("&#13;&#10;", ""),regExFilter);
             return new FileContentResult(zip[index], "application/octet-stream");
         }
         catch (Exception ex)
@@ -64,7 +65,7 @@ public class ZipAPIs
 
 
         // Validate input data (replace with your validation logic)
-        if (inputData == null || !inputData?.ContainsKey("Zip") )
+        if (inputData == null || !inputData?.ContainsKey("Zip") || !inputData?.ContainsKey("RegExFilter") )
         {
             return new ObjectResult("Invalid input data format")
             {
@@ -75,8 +76,9 @@ public class ZipAPIs
         try
         {
             string zipBase64 = inputData!.Zip;
-            int index = inputData!.Index;
-            using Zip zip = new(zipBase64.Replace("&#13;&#10;", ""));
+            string regExFilter = inputData!.RegExFilter;
+
+            using Zip zip = new(zipBase64.Replace("&#13;&#10;", ""),regExFilter);
             return new OkObjectResult(zip.Files);
         }
         catch (Exception ex)

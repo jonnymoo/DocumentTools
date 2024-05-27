@@ -12,10 +12,19 @@ This repository provides a set of Azure Functions for working with documents.
 2. **Run the Functions Locally:** Open a terminal in the project directory and run the following command to start the local Azure Functions runtime:
 
 ```bash
+cd AzureFunctions
 func start
 ```
 
 This will start the local development server and expose your functions on `http://localhost:7071`.
+
+3. **Deploy the function in Azure:**
+
+```bash
+az login
+cd AzureFunctions
+func azure functionapp publish DocumentTools --build-remote --publish-local-folder="bin/Release/net8.0/publish
+```
 
 ## APIs
 

@@ -1,15 +1,16 @@
 ﻿using System.Collections.ObjectModel;
 using System.IO.Compression;
+using System.Text.RegularExpressions;
 
 namespace DocumentTools.ZipService;
 
 public class Zip : IDisposable
 {
-    public Zip(string base64Zip)
+    public Zip(string base64Zip, string regExFilter)
     {
         ZipStream = new(Convert.FromBase64String(base64Zip));
         ZipArchive = new ZipArchive(ZipStream);
-        Entries = ZipArchive.Entries.Where(e => e.Name.Length > 0);
+        Entries = ZipArchive.Entries.Where(e => e.Name.Length > 0 && Regex.IsMatch(e.Name, regExFilter));
         Files = Entries.Select(entry => new ZipFile(entry.Name, entry.FullName)).ToArray();
     }
 
