@@ -36,7 +36,8 @@ The Azure Functions project exposes two main APIs:
         ```json
         {
           "Zip": "base64_encoded_zip_content",
-          "Index": 0
+          "Index": 0,
+          "RegExFilter": "regular_expression_for_filename"
         }
         ```
     * **Response:**
@@ -48,7 +49,8 @@ The Azure Functions project exposes two main APIs:
     * **Request Body (JSON):**
         ```json
         {
-          "Zip": "base64_encoded_zip_content"
+          "Zip": "base64_encoded_zip_content",,
+          "RegExFilter": "regular_expression_for_filename"
         }
         ```
     * **Response:**
@@ -67,7 +69,8 @@ You can use tools like Postman to test these APIs locally by sending HTTP reques
 ```json
 {
   "Zip": "UEsDBBQAAAAAAIdbulgAAAAAAAAAAAAAAAAIAAAAVGVzdFppcC9QSwMECgAAAAAAilu6WMvQ3WkLAAAACwAAABEAAABUZXN0WmlwL1Rlc3QxLnR4dEkgYW0gdGVzdCAxUEsBAj8AFAAAAAAAh1u6WAAAAAAAAAAAAAAAAAgAJAAAAAAAAAAQAAAAAAAAAFRlc3RaaXAvCgAgAAAAAAABABgAPblVaVev2gE9uVVpV6/aAXB8tV5Xr9oBUEsBAj8ACgAAAAAAilu6WMvQ3WkLAAAACwAAABEAJAAAAAAAAAAgAAAAJgAAAFRlc3RaaXAvVGVzdDEudHh0CgAgAAAAAAABABgAlHI/bVev2gGQN0NtV6/aAanwoWZXr9oBUEsFBgAAAAACAAIAvQAAAGAAAAAAAA==",
-  "Index": 0 
+  "Index": 0,
+  "RegExFilter": ".*\\.txt"
 }
 ```
 
@@ -80,5 +83,6 @@ You can use tools like Postman to test these APIs locally by sending HTTP reques
 
 ```json
 {
-  "Zip": "UEsDBBQAAAAAAIdbulgAAAAAAAAAAAAAAAAIAAAAVGVzdFppcC9QSwMECgAAAAAAilu6WMvQ3WkLAAAACwAAABEAAABUZXN0WmlwL1Rlc3QxLnR4dEkgYW0gdGVzdCAxUEsBAj8AFAAAAAAAh1u6WAAAAAAAAAAAAAAAAAgAJAAAAAAAAAAQAAAAAAAAAFRlc3RaaXAvCgAgAAAAAAABABgAPblVaVev2gE9uVVpV6/aAXB8tV5Xr9oBUEsBAj8ACgAAAAAAilu6WMvQ3WkLAAAACwAAABEAJAAAAAAAAAAgAAAAJgAAAFRlc3RaaXAvVGVzdDEudHh0CgAgAAAAAAABABgAlHI/bVev2gGQN0NtV6/aAanwoWZXr9oBUEsFBgAAAAACAAIAvQAAAGAAAAAAAA=="
+  "Zip": "UEsDBBQAAAAAAIdbulgAAAAAAAAAAAAAAAAIAAAAVGVzdFppcC9QSwMECgAAAAAAilu6WMvQ3WkLAAAACwAAABEAAABUZXN0WmlwL1Rlc3QxLnR4dEkgYW0gdGVzdCAxUEsBAj8AFAAAAAAAh1u6WAAAAAAAAAAAAAAAAAgAJAAAAAAAAAAQAAAAAAAAAFRlc3RaaXAvCgAgAAAAAAABABgAPblVaVev2gE9uVVpV6/aAXB8tV5Xr9oBUEsBAj8ACgAAAAAAilu6WMvQ3WkLAAAACwAAABEAJAAAAAAAAAAgAAAAJgAAAFRlc3RaaXAvVGVzdDEudHh0CgAgAAAAAAABABgAlHI/bVev2gGQN0NtV6/aAanwoWZXr9oBUEsFBgAAAAACAAIAvQAAAGAAAAAAAA==",
+  "RegExFilter":".*\\.txt"
 }
